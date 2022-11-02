@@ -8,7 +8,7 @@ public class Order {
         C- Mushrooms
         D- Onion
 
-        State: 0 = new order, 100 = Processed, 200 = Cooked, 300 = Killed
+        State: 0 = new order, 100 = Processed, 200 = Cooking, 300 = Cooked, 400 = Killed
      */
     private int toppings;
     private int type;
@@ -20,7 +20,7 @@ public class Order {
         this.toppings = toppings;
         this.type = type;
         this.userID = userID;
-        this.orderID = HelloApplication.getDepth();
+        this.orderID = MainApplication.getDepth();
         state = 0;
     }
     public void updateStatus(int state){

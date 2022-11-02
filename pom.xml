@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>edu.asu.probableoctosuccotash/edu.asu.probableoctosuccotash.HelloApplication
+                            <mainClass>edu.asu.probableoctosuccotash/edu.asu.probableoctosuccotash.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

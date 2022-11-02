@@ -71,7 +71,7 @@ public class DevController {
     }
 
     private void open() throws IOException {
-        FXMLLoader fLoader= new FXMLLoader(HelloApplication.class.getResource(resource));
+        FXMLLoader fLoader= new FXMLLoader(MainApplication.class.getResource(resource));
         Scene s = new Scene(fLoader.load(), 600,400);
         Stage n = new Stage();
         n.setScene(s);
