@@ -1,0 +1,34 @@
+INTERNAL DEV DOCUMENTATION AKA HOW SHIT WORKS also idk how to make javadoc
+
+Realize I kinda wrote everything by myself, and only god and I know how it works. So here's kinda the rundown
+
+-abstract OrderManager:
+This class holds all the methods that will be used by ANY controller that modifies orders.
+
+--Fields:
+protected static ArrayList<Order> localOrders -- Holds the local list of orders for the controller
+
+--Methods:
+abstract protected void updateScreen(int code) -- Method to be implemented to determine how the screen is redrawn based on new info
+public static void statusChange() -- Used as a way for the application to grab new arrays, will call updateScreen
+
+Update Screen Codes:
+0 -- order creation failed
+1 -- order creation sucessful
+10 -- Screen update due to array change
+
+Practices to make sure that shit works:
+
+Any button that modifies orders MUST use the Primary Applications event handler, you can define other things to do, but other views will not be updated unless it is called.
+Any button that opens a new window AND closes a previous one SHOULD use classic event handling as opposed to FXML event handling, see HelloController for example.
+
+
+Login Notes:
+Any 10 digit numerical value (leading 0s ignored) - Student
+12345 - Chef (Chef View)
+42069 - Order Processor (Agent View)
+
+Progressions based on User:
+Student: Login -> OrderView -> TrackingView
+Chef: Login -> ChefView
+Agent: Login -> AgentView

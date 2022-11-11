@@ -8,7 +8,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
-public class OrderController {
+public class OrderController extends OrderManager{
 
     @FXML
     private ChoiceBox pizzaType;
@@ -24,6 +24,8 @@ public class OrderController {
     private CheckBox mushBox;
     @FXML
     private CheckBox onionBox;
+
+    private int userID;
 
     ObservableList<String> pizzaTypeList = FXCollections.observableArrayList("Pepperoni","Veggie", "Cheese");
 
@@ -50,4 +52,15 @@ public class OrderController {
         System.out.println("Toppings: " + toppings+" PizzaType: "+ MainApplication.PizzaTypes.valueOf(type.toUpperCase()).getValue());
     }
 
+    protected void updateScreen(int code) {
+        ////Code 0: Show error
+
+        ////Code 1:
+        //Open Tracking View
+        //Set Active order ID on tracking view
+        //Close Order window
+
+        if(code == 10) return;
+    }
+    public void setUserID(int id){userID = id;}
 }

@@ -4,11 +4,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
-public class TrackingController {
+public class TrackingController extends OrderManager{
     private static Color gold = Color.rgb(249,201,52);
     private static Color grey = Color.rgb(148,148,148);
     private static Color green = Color.rgb(111,228,53);
 
+
+    //Cluster fuck code, delete all
     @FXML
     private Label accept;
     @FXML
@@ -90,5 +92,10 @@ public class TrackingController {
                 state = 0;
                 break;
         }
+    }
+
+    @Override
+    protected void updateScreen(int code) {
+
     }
 }
