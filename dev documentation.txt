@@ -36,3 +36,5 @@ Progressions based on User:
 Student: Login -> OrderView -> TrackingView
 Chef: Login -> ChefView
 Agent: Login -> AgentView
+
+**The whole program is event driven. Any changes to the order list will call your module's and other modules' updateScreen() method. That's why its imperative you use the event handler in MainApplication anytime you modify an order and use the updateScreen method when you are fetching orders**
