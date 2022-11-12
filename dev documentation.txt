@@ -16,11 +16,15 @@ Update Screen Codes:
 0 -- order creation failed
 1 -- order creation sucessful
 10 -- Screen update due to array change
+--more added as needed
 
 Practices to make sure that shit works:
 
 Any button that modifies orders MUST use the Primary Applications event handler, you can define other things to do, but other views will not be updated unless it is called.
 Any button that opens a new window AND closes a previous one SHOULD use classic event handling as opposed to FXML event handling, see HelloController for example.
+ALL methods that redraw the screen MUST use updateScreen(), implementation of the method is up to you.
+Check the Order class for info on how to use Order state.
+Orders should NEVER be fetched by the controller outside of initialize(), all order fetching is done by the orderChange event.
 
 
 Login Notes:

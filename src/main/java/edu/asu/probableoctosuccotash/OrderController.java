@@ -29,8 +29,8 @@ public class OrderController extends OrderManager{
 
     ObservableList<String> pizzaTypeList = FXCollections.observableArrayList("Pepperoni","Veggie", "Cheese");
 
-    @FXML
-    private void initialize(){
+    protected void initialize(){
+        super.initialize();
         pizzaType.setItems(pizzaTypeList);
         errorMsg.setVisible(false);
     }

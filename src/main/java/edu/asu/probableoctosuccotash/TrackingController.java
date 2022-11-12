@@ -10,7 +10,7 @@ public class TrackingController extends OrderManager{
     private static Color green = Color.rgb(111,228,53);
 
 
-    //Cluster fuck code, delete all
+    private int orderID;
     @FXML
     private Label accept;
     @FXML
@@ -20,6 +20,14 @@ public class TrackingController extends OrderManager{
     @FXML
     private Label readyPickup;
 
+    @Override
+    protected void updateScreen(int code) {
+
+    }
+
+    public void setOrderID(int orderID) {this.orderID = orderID;}
+
+    //Cluster fuck code, delete all below
     private int state;
     private String last;
 
@@ -94,8 +102,5 @@ public class TrackingController extends OrderManager{
         }
     }
 
-    @Override
-    protected void updateScreen(int code) {
 
-    }
 }
