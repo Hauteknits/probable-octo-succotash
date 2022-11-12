@@ -34,6 +34,7 @@ public class HelloController {
                 errorMsg.setVisible(true);
                 return;
             }
+            if(id%10 != idField.getText().length()-1){errorMsg.setVisible(true); return;} //covers leading 0s
 
             if(id/Math.pow(10,9) > 1) resource = "order-view.fxml";
             else if(id == 12345) resource = "chef-view.fxml";

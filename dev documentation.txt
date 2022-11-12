@@ -28,7 +28,7 @@ Orders should NEVER be fetched by the controller outside of initialize(), all or
 
 
 Login Notes:
-Any 10 digit numerical value (leading 0s ignored) - Student
+Any 10 digit numerical value - Student
 12345 - Chef (Chef View)
 42069 - Order Processor (Agent View)
 
