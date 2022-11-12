@@ -43,7 +43,9 @@ public class HelloController {
             try{MainApplication.pushController(open(id));}
             catch(IOException ex){ex.printStackTrace();}
 
-            ((Node)e.getSource()).getScene().getWindow().hide();
+            //Closes window, uncomment in prod build
+            //((Node)e.getSource()).getScene().getWindow().hide();
+
         }
     };
 

@@ -8,7 +8,7 @@ public class Order {
         C- Mushrooms
         D- Onion
 
-        State: 0 = new order, 100 = Processed, 200 = Cooking, 300 = Cooked, 400 = Killed
+        State: 0 = new order, 100 = Processed, 200 = Cooking, 300 = Cooked, 400 = Killed/Picked Up
      */
     private int toppings;
     private int type;
@@ -23,10 +23,12 @@ public class Order {
         this.orderID = MainApplication.getDepth();
         state = 0;
     }
-    public void updateStatus(int state){
-        this.state = state;
-    }
-    public String details(){
-        return null; //placeholder for getting text/info about pizza
-    }
+
+    public int getToppings() {return toppings;}
+    public int getType() {return type;}
+    public int getOrderID() {return orderID;}
+    public int getUserID() {return userID;}
+    public int getState() {return state;}
+
+    public void updateStatus(int state){this.state = state;}
 }
