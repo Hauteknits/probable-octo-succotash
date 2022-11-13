@@ -20,10 +20,11 @@ public class MainApplication extends Application {
         private int value;
         PizzaTypes(int value){ this.value = value; }
         public int getValue(){return this.value;}
+        //public String getName(){return name();}
     }
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("dev-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
         stage.setTitle("SunDevil Pizza");
@@ -48,7 +49,7 @@ public class MainApplication extends Application {
     public static ArrayList<Order> fetchOrders(){return orders;}
     public static void pushController(OrderManager c){controllers.add(c);}
 
-    public EventHandler<ActionEvent> orderChange = new EventHandler<ActionEvent>() {
+    public static EventHandler<ActionEvent> orderChange = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent e) {
             controllers.forEach((c) -> {
