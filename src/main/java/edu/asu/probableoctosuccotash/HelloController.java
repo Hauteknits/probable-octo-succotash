@@ -45,7 +45,7 @@ public class HelloController {
             catch(IOException ex){ex.printStackTrace();}
 
             //Closes window, uncomment in prod build
-            ((Node)e.getSource()).getScene().getWindow().hide();
+            //((Node)e.getSource()).getScene().getWindow().hide();
 
         }
     };

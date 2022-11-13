@@ -59,11 +59,11 @@ public class ChefController extends OrderManager{
 	            detail.setFont(Font.font("System Bold"));
 
 	            CookingButton.setMnemonicParsing(false);
-	            CookingButton.setId("number-button-" + localOrders.get(i).getOrderID());
+	            CookingButton.setId("cooking-button-" + localOrders.get(i).getOrderID());
 //	            CookingButton.setOnAction(CookingOrder);
 // had a doubt here     
 	            CookedButton.setMnemonicParsing(false);
-	            CookedButton.setId("number-button-" + localOrders.get(i).getOrderID());
+	            CookedButton.setId("cooked-button-" + localOrders.get(i).getOrderID());
 //	            CookedButton.setOnAction(CookedOrder);
 // had a doubt here
 	            
@@ -106,7 +106,7 @@ public class ChefController extends OrderManager{
 	            localOrders.forEach((c)->{
 	               if(c.getOrderID() == targetID) c.updateStatus(200);
 	            });
-	           //Calls main screen update method
+				MainApplication.orderChange.handle(actionEvent);
 	        }
 	    };
 	    

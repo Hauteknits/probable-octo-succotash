@@ -9,7 +9,8 @@ public class TrackingController extends OrderManager{
     private static Color grey = Color.rgb(148,148,148);
     private static Color green = Color.rgb(111,228,53);
     
-    private String last;
+    private String last = "Order Accepted";
+	private int lastState = 0;
 
     private int orderID;
     @FXML
@@ -26,14 +27,8 @@ public class TrackingController extends OrderManager{
     protected void updateScreen(int code) {
     	localOrders.forEach((order) -> {
     		if(orderID == order.getOrderID()) {
+				if(lastState == order.getState()) return;
     			if(order.getState() == 100) {
-    				accept.setTextFill(green);
-    		        this.append(accept);
-    		        readyCook.setTextFill(grey);
-    		        cooking.setTextFill(grey);
-    		        readyPickup.setTextFill(grey);
-    		        
-    			}else if(order.getState() == 200) {
     				accept.setTextFill(gold);
     		        accept.setText(last);
     		        readyCook.setTextFill(green);
@@ -41,7 +36,7 @@ public class TrackingController extends OrderManager{
     		        cooking.setTextFill(grey);
     		        readyPickup.setTextFill(grey);
     		        
-    			}else if(order.getState() == 300) {
+    			}else if(order.getState() == 200) {
     				accept.setTextFill(gold);
     		        readyCook.setTextFill(gold);
     		        readyCook.setText(last);
@@ -49,15 +44,15 @@ public class TrackingController extends OrderManager{
     		        this.append(cooking);
     		        readyPickup.setTextFill(grey);
     		        
-    			}else if(order.getState() == 400) {
+    			}else if(order.getState() == 300) {
     				accept.setTextFill(gold);
     		        readyCook.setTextFill(gold);
     		        cooking.setTextFill(gold);
     		        cooking.setText(last);
     		        readyPickup.setTextFill(green);
     		        this.append(readyPickup);
-    		        
     			}
+				lastState = order.getState();
     		}
     	});
     }
