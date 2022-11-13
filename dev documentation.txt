@@ -25,6 +25,7 @@ Any button that opens a new window AND closes a previous one SHOULD use classic 
 ALL methods that redraw the screen MUST use updateScreen(), implementation of the method is up to you.
 Check the Order class for info on how to use Order state.
 Orders should NEVER be fetched by the controller outside of initialize(), all order fetching is done by the orderChange event.
+You should NEVER call updateScreen from your controller
 
 
 Login Notes:

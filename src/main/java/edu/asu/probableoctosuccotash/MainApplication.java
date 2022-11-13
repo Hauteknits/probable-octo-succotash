@@ -53,7 +53,7 @@ public class MainApplication extends Application {
         public void handle(ActionEvent e) {
             controllers.forEach((c) -> {
                 //this code is disgusting please clean it if you can
-                if(c instanceof OrderController) ((OrderController) c).statusChange();
+                //if(c instanceof OrderController) ((OrderController) c).statusChange();
                 if(c instanceof AgentController) ((AgentController) c).statusChange();
                 if(c instanceof ChefController) ((ChefController) c).statusChange();
                 if(c instanceof TrackingController) ((TrackingController) c).statusChange();
