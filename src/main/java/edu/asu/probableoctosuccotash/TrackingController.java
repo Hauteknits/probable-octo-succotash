@@ -24,7 +24,7 @@ public class TrackingController extends OrderManager{
     // State: 0 = new order, 100 = Processed, 200 = Cooking, 300 = Cooked, 400 = Killed/Picked Up
     @Override
     protected void updateScreen(int code) {
-    	for(Order order : localOrders) {
+    	localOrders.forEach((order) -> {
     		if(orderID == order.getOrderID()) {
     			if(order.getState() == 100) {
     				accept.setTextFill(green);
@@ -33,7 +33,6 @@ public class TrackingController extends OrderManager{
     		        cooking.setTextFill(grey);
     		        readyPickup.setTextFill(grey);
     		        
-    		        statusChange();
     			}else if(order.getState() == 200) {
     				accept.setTextFill(gold);
     		        accept.setText(last);
@@ -42,7 +41,6 @@ public class TrackingController extends OrderManager{
     		        cooking.setTextFill(grey);
     		        readyPickup.setTextFill(grey);
     		        
-    		        statusChange();
     			}else if(order.getState() == 300) {
     				accept.setTextFill(gold);
     		        readyCook.setTextFill(gold);
@@ -51,7 +49,6 @@ public class TrackingController extends OrderManager{
     		        this.append(cooking);
     		        readyPickup.setTextFill(grey);
     		        
-    		        statusChange();
     			}else if(order.getState() == 400) {
     				accept.setTextFill(gold);
     		        readyCook.setTextFill(gold);
@@ -60,10 +57,9 @@ public class TrackingController extends OrderManager{
     		        readyPickup.setTextFill(green);
     		        this.append(readyPickup);
     		        
-    		        statusChange();
     			}
     		}
-    	}
+    	});
     }
 
     public void setOrderID(int orderID) {this.orderID = orderID;}

@@ -65,7 +65,7 @@ public class OrderController extends OrderManager{
         if(olivesBox.isSelected()) toppings+=4;
         if(mushBox.isSelected()) toppings+=2;
         if(onionBox.isSelected()) toppings+=1;
-        System.out.println(MainApplication.createOrder(toppings, pType, this.userID)); //Dev Code, remove later
+        int newOrderID = MainApplication.createOrder(toppings, pType, this.userID); //Dev Code, remove later
         MainApplication.orderChange.handle(event);
         try {
             FXMLLoader fLoader= new FXMLLoader(MainApplication.class.getResource("tracking-view.fxml"));
@@ -73,6 +73,9 @@ public class OrderController extends OrderManager{
             Stage n = new Stage();
             n.setScene(s);
             n.show();
+            TrackingController c = fLoader.getController();
+            c.setOrderID(newOrderID);
+            MainApplication.pushController(c);
             ((Node)event.getSource()).getScene().getWindow().hide();
         }catch(IOException e) {
             e.printStackTrace();

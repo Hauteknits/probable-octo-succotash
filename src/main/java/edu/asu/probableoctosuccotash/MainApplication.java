@@ -41,10 +41,9 @@ public class MainApplication extends Application {
     }
     public static int getDepth(){return ++depth;}
     public static int createOrder(int toppings, int type, int userID){ //may need to add event callback into method, could use a promise
-        //check if valid, return 0 if not
         Order newOrder = new Order(toppings, type, userID);
         orders.add(newOrder);
-        return 1;
+        return newOrder.getOrderID();
     }
     public static ArrayList<Order> fetchOrders(){return orders;}
     public static void pushController(OrderManager c){controllers.add(c);}
