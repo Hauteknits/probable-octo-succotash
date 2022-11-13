@@ -31,4 +31,5 @@ public class Order {
     public int getState() {return state;}
 
     public void updateStatus(int state){this.state = state;}
+    public void details(){System.out.printf("Top: %d Type: %d OrderID: %d userID: %d State %d",toppings,type,orderID,userID,state);}
 }

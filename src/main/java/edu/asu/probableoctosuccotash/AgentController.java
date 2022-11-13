@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
@@ -15,7 +16,8 @@ import javafx.scene.text.Text;
 
 public class AgentController extends OrderManager{
 
-
+    @FXML
+    private VBox mainScroll;
 
     @Override
     protected void initialize() {
@@ -26,7 +28,7 @@ public class AgentController extends OrderManager{
     @FXML
     private void fillScreen() {
         for (int i = 0; i < localOrders.size(); i++) {
-
+            localOrders.get(i).details();
             VBox background = new VBox();
             Text detail = new Text();
             Button processButton = new Button("Ready to Cook");
@@ -53,7 +55,9 @@ public class AgentController extends OrderManager{
                 processButton.setVisible(false);
 
             }
-
+            background.getChildren().add(detail);
+            background.getChildren().add(processButton);
+            mainScroll.getChildren().add(background);
 
         }
     }

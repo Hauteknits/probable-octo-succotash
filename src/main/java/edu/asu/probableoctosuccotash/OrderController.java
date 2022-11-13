@@ -51,7 +51,7 @@ public class OrderController extends OrderManager{
         	for (int i = 0; i < pizzaTypeList.size(); i++) {
         		String s = pizzaTypeList.get(i);
         		if(s.equals(type)) {
-        			pType = i + 1;
+        			pType = i;
         		}
         	}
         }
@@ -61,8 +61,8 @@ public class OrderController extends OrderManager{
         if(olivesBox.isSelected()) toppings+=4;
         if(mushBox.isSelected()) toppings+=2;
         if(onionBox.isSelected()) toppings+=1;
-        MainApplication.createOrder(toppings, pType, this.userID);
-        
+        System.out.println(MainApplication.createOrder(toppings, pType, this.userID)); //Dev Code, remove later
+
         try {
         	FXMLLoader fLoader= new FXMLLoader(MainApplication.class.getResource("tracking-view.fxml"));
             Scene s = new Scene(fLoader.load(), 600,400);
@@ -78,14 +78,7 @@ public class OrderController extends OrderManager{
     }
 
     protected void updateScreen(int code) {
-        ////Code 0: Show error
-
-        ////Code 1:
-        //Open Tracking View
-        //Set Active order ID on tracking view
-        //Close Order window
-
-        if(code == 10) return;
+        return;
     }
     public void setUserID(int id){userID = id;}
 }
