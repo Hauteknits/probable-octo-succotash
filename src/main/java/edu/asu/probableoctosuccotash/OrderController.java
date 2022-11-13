@@ -3,10 +3,15 @@ package edu.asu.probableoctosuccotash;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class OrderController extends OrderManager{
 
@@ -38,9 +43,17 @@ public class OrderController extends OrderManager{
     private void submitOrder(){
         String type;
         type = (String)pizzaType.getValue();
+        int pType = 0;
         if(type == null) {
             errorMsg.setVisible(true);
             return;
+        }else {
+        	for (int i = 0; i < pizzaTypeList.size(); i++) {
+        		String s = pizzaTypeList.get(i);
+        		if(s.equals(type)) {
+        			pType = i + 1;
+        		}
+        	}
         }
         errorMsg.setVisible(false);
         int toppings = 0;
@@ -48,8 +61,20 @@ public class OrderController extends OrderManager{
         if(olivesBox.isSelected()) toppings+=4;
         if(mushBox.isSelected()) toppings+=2;
         if(onionBox.isSelected()) toppings+=1;
+        MainApplication.createOrder(toppings, pType, this.userID);
+        
+        try {
+        	FXMLLoader fLoader= new FXMLLoader(MainApplication.class.getResource("tracking-view.fxml"));
+            Scene s = new Scene(fLoader.load(), 600,400);
+            Stage n = new Stage();
+            n.setScene(s);
+            n.show();
+        }catch(IOException e) {
+        	e.printStackTrace();
+        }
+        
         //For Testing purposes only, will create order and then open the Tracking View
-        System.out.println("Toppings: " + toppings+" PizzaType: "+ MainApplication.PizzaTypes.valueOf(type.toUpperCase()).getValue());
+//        System.out.println("Toppings: " + toppings+" PizzaType: "+ MainApplication.PizzaTypes.valueOf(type.toUpperCase()).getValue());
     }
 
     protected void updateScreen(int code) {
